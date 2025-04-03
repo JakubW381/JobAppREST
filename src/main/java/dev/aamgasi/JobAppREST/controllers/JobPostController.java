@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+//siemano
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class JobPostController {
@@ -38,7 +38,4 @@ public class JobPostController {
     public void deleteJob(@PathVariable ObjectId id){
         service.deletePost(id);
     }
-
-
-
 }
