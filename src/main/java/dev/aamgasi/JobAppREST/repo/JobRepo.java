@@ -1,12 +1,14 @@
 package dev.aamgasi.JobAppREST.repo;
 
 import dev.aamgasi.JobAppREST.model.JobPost;
-import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface JobRepo extends MongoRepository<JobPost, ObjectId> {
+public interface JobRepo extends JpaRepository<JobPost, Integer> {
+
+    List<JobPost> findByPostProfileContainingOrPostDescContaining(String profile,String desc);
+
 }

@@ -1,24 +1,26 @@
 package dev.aamgasi.JobAppREST.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
-@Document(collection = "JobPost")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
+@Entity
 public class JobPost {
 
     @Id
-    private String id = ObjectId.get().toHexString();
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private String postProfile;
     private String postDesc;
     private int reqExperience;
